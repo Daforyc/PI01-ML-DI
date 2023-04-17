@@ -73,7 +73,7 @@ def get_count_platform(platform: str,):  #devolver un iint con el numero total d
     id_plat = platform_ids[platform]
     if platform not in platform_ids:
         return "Invalid platform. Please choose from 'amazon', 'disney', 'hulu', or 'netflix'."
-    temp_df = df['id'].str.contains(id_plat)
+    temp_df = df['id'].str.contains(id_plat) & (df.type == "movie")
     count = temp_df.value_counts().get(True, 0)
     print(f"{count} peliculas tiene la plataforma {platform}")
     return {'plataforma': platform, 'peliculas': count}
