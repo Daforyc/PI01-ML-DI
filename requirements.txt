@@ -1,0 +1,8 @@
+fastapi
+pandas
+uvicorn
+surprise
+matplotlib
+seaborn
+numpy
+gc
