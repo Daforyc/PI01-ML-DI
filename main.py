@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 import pandas as pd
-import uvicorn as uv 
+import uvicorn 
+import numpy as np
+from typing import Optional
 
 
 app = FastAPI(title = 'Platforms_MLOPS')
@@ -83,3 +85,7 @@ def get_contents(rating): #int con cantidad de contenidos con la clasificacion i
     df_temp= df[df['rating_x'] == rating]
     total= df_temp['title'].count() 
     return {'rating': rating, 'contenido': int(total)}
+
+if __name__ == "__main__":
+
+    uvicorn.run(app, host="0.0.0.0", port=8000)
